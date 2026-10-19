@@ -34,8 +34,11 @@ const SIGNALS = {
   // missed frame does not count as somebody leaving.
   present: result => (result.faceLandmarks.length > 0 ? 1 : 0),
 
-  // open: the worked signal. jawOpen is one of the 52 scores, already 0 to 1.
-  open: result => score(result, 'jawOpen'),
+  // Face scores used by the State Table's expression rules.
+  browInnerUp: result => score(result, 'browInnerUp'),
+  eyeBlinkRight: result => score(result, 'eyeBlinkRight'),
+  eyeBlinkLeft: result => score(result, 'eyeBlinkLeft'),
+  mouthPucker: result => score(result, 'mouthPucker'),
 
   // Your signal goes here. Two patterns to copy:
   //
